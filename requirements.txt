@@ -20,3 +20,5 @@ pyarrow
 tabulate
 html5lib
 duckdb
+scikit-learn
+s3fs
