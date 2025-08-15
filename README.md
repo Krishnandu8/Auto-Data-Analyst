@@ -1,116 +1,82 @@
-Here's the enhanced Markdown version with badges, a visual diagram, and contribution guidelines:
+# 🤖 Auto Data Analyst
 
-```markdown
-# 🧠 Autonomous Data Analyst
+Welcome to Auto Data Analyst, an intelligent agent that transforms natural language questions into data-driven insights. Powered by Google's Gemini, this application can scrape web data, analyze datasets, and generate visualizations, acting as your personal data science assistant.
 
-![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Deployment](https://img.shields.io/badge/deployed%20on-Railway-6441a5)
 
-An AI-powered data analysis agent built with **FastAPI**, **LangChain**, and **Google Gemini** that ingests datasets, understands questions, performs web scraping, and generates visualizations.
+## ✨ Core Features
 
-```mermaid
-graph TD
-    A[User Upload] -->|Questions.txt + Dataset| B[LangChain Agent]
-    B --> C[Code Generation]
-    C --> D[Sandbox Execution]
-    D --> E[Base64 Visualization]
-    E --> F[Web Interface]
-```
+-   **Natural Language Processing**: Ask questions in plain English and get intelligent, accurate answers.
+-   **Automated Web Scraping**: Extracts data from any URL, automatically parsing tables and text.
+-   **Versatile Data Support**: Natively handles `CSV`, `Excel`, `JSON`, and `Parquet` files.
+-   **Dynamic Visualizations**: Generates `Matplotlib` and `Seaborn` plots on-the-fly, delivered as images.
+-   **AI-Powered Code Generation**: The agent writes and executes its own Python code to fulfill your requests.
+-   **Simple & Fast Deployment**: Pre-configured for seamless deployment to Railway with Docker.
 
 ---
 
-## 🚀 Core Features
+## ⚙️ How It Works
 
-- **Natural Language Understanding**  
-  Interprets questions in plain English like "Show sales trends by region"
-- **Auto-Code Generation**  
-  Writes Pandas/Matplotlib/Seaborn code tailored to your data
-- **Web Scraping**  
-  Augments your dataset with live web data when needed
-- **Safe Execution**  
-  Runs generated code in isolated environments
-- **Visual Reporting**  
-  Returns both textual answers and publication-ready charts
+This isn't just another data tool. The Auto Data Analyst operates through a sophisticated, multi-step process:
+
+1.  **Ingestion**: The FastAPI backend receives your questions and optional data files.
+2.  **AI Analysis**: A LangChain agent, equipped with Google's Gemini model, analyzes your request. It determines whether to use the provided dataset or to scrape a new one from a URL.
+3.  **Code Generation**: The agent writes a custom Python script using Pandas and other libraries to perform the required analysis.
+4.  **Secure Execution**: This script is run in a secure, isolated environment. Any charts are saved as base64-encoded images.
+5.  **Response**: The final results, including data and visualizations, are packaged into a clean JSON response and sent back to the user interface.
 
 ---
 
-## 🛠️ Setup Guide
+## 🚀 Getting Started
+
+You can get the Auto Data Analyst running on your local machine in just a few steps.
 
 ### Prerequisites
-- Python 3.9+
-- [Google API Key](https://ai.google.dev)
 
-### Installation
-```bash
-git clone https://github.com/yourrepo/autonomous-analyst.git
-cd autonomous-analyst
-pip install -r requirements.txt
-```
+-   Python 3.9+
+-   A **Google Generative AI API Key**. You can get one [here](https://aistudio.google.com/apikey).
 
-### Configuration
-Create `.env` file:
-```env
-GOOGLE_API_KEY="your_key_here"
-PORT=8000  # Optional
-```
+### Local Installation
 
-### Running Locally
-```bash
-uvicorn app:app --reload
-```
-Visit `http://localhost:8000`
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/Krishnandu8/Auto-Data-Analyst.git](https://github.com/Krishnandu8/Auto-Data-Analyst.git)
+    cd Auto-Data-Analyst
+    ```
 
----
+2.  **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-## ☁️ One-Click Deployment
+3.  **Configure Your Environment**
+    Create a file named `.env` in the project root and add your API key:
+    ```
+    GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY_HERE"
+    ```
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=your-template-url)
-
-1. Connect your GitHub repo
-2. Add `GOOGLE_API_KEY` in Railway dashboard
-3. Deploy!
+4.  **Run the Server**
+    Launch the application with Uvicorn:
+    ```bash
+    uvicorn app:app --reload
+    ```
+    Your agent is now live at `http://localhost:8000`.
 
 ---
 
-## 📊 Example Queries
+## ☁️ Deployment to Railway
 
-| Question Type | Example | Output |
-|--------------|---------|--------|
-| Basic Stats | "What's the average age?" | Text + Histogram |
-| Time Series | "Show monthly sales" | Line Chart |
-| Comparison | "Compare revenue by product" | Bar Chart |
+This project is built to deploy effortlessly on Railway.
 
----
+1.  **Push to GitHub**: Make sure your local repository is up-to-date with your GitHub repository.
+2.  **Create a New Railway Project**: From your Railway dashboard, select "Deploy from GitHub repo".
+3.  **Select Your Repository**: Choose the `Auto-Data-Analyst` repository. Railway will automatically detect the `Dockerfile` and start the build process.
+4.  **Add Your API Key**: In your new Railway project, navigate to the "Variables" tab and add your `GOOGLE_API_KEY`. The application will not work without it.
 
-## 🤝 Contributing
-
-We welcome contributions! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+That's it! Railway will handle the rest and provide a public URL for your deployed application.
 
 ---
 
-## 📜 License
+## 📄 License
 
-MIT License - See [LICENSE](LICENSE) for details.
-
-```
-
-Key improvements:
-1. Added shields.io badges
-2. Included mermaid.js architecture diagram
-3. Formatted example queries as a table
-4. Added Railway deployment button
-5. Structured contribution guidelines
-6. Improved visual hierarchy with emoji dividers
-
-Would you like me to add any additional sections like:
-- Known issues
-- Roadmap
-- Alternative deployment options (AWS, GCP)
-- API reference details?
+This project is open-source and available under the **MIT License**. See the `LICENSE` file for more details.
+````
