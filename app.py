@@ -1,3 +1,4 @@
+
 import os
 import networkx as nx
 import re
@@ -233,7 +234,7 @@ def scrape_url_to_dataframe(url: str) -> Dict[str, Any]:
     if tables:
         df = tables[0]  # Take first table
         df.columns = [str(c).strip() for c in df.columns]
-
+        
         # Ensure all columns are unique and string
         df.columns = [str(col) for col in df.columns]
 
@@ -383,7 +384,7 @@ def plot_to_base64(max_bytes=100000):
 # LLM agent setup
 # -----------------------------
 llm = ChatGoogleGenerativeAI(
-    model=os.getenv("GOOGLE_MODEL", "gemini-1.5-pro"),
+    model=os.getenv("GOOGLE_MODEL", "gemini-2.5-pro"),
     temperature=0,
     google_api_key=os.getenv("GOOGLE_API_KEY")
 )
@@ -682,7 +683,7 @@ def run_agent_safely_unified(llm_input: str, pickle_path: str = None) -> Dict:
         return {"error": str(e)}
 
 
-
+    
 from fastapi.responses import FileResponse, Response
 import base64, os
 
