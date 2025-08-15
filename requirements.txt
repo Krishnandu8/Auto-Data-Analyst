@@ -17,6 +17,7 @@ pyarrow
 python-dotenv
 python-multipart
 requests
+s3fs
 scikit-learn
 seaborn
 tabulate
